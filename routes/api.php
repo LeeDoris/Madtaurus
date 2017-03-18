@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', function ($api) {
+
+    $api->group(['namespace' => 'App\Http\Controllers\Api'], function ($api){
+        $api->get('posts', 'PostController@index');
+        $api->get('categories', 'CategoriesController@index');
+    });
+
+});

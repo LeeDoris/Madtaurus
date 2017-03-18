@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kuala_Lumpur',
 
     /*
     |--------------------------------------------------------------------------
@@ -180,6 +180,8 @@ return [
 
         //voyager
         TCG\Voyager\VoyagerServiceProvider::class,
+        //Api
+        Dingo\Api\Provider\LaravelServiceProvider::class,
 
     ],
 
